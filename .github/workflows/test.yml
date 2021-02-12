@@ -21,10 +21,10 @@ jobs:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
       - uses: shogo82148/actions-setup-perl@v1
-      # craftinginterpreters' `make test' depends on Dart.
+      # craftinginterpreters' `make test_clox' depends on Dart.
       - uses: cedx/setup-dart@v2
       - name: Uncomment code
         run: perl ../uncomment.pl c/*.c c/*.h
         working-directory: ./craftinginterpreters
       - name: Test clox
-        run: make test
+        run: make test_clox
