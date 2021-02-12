@@ -1,7 +1,7 @@
 name: Test
-# On push, PRs that change Perl files, and also every Sunday at 5 PM UTC.
 on:
-  schedule: "0 17 * * */7" # https://crontab.guru/#0_17_*_*_*/7
+  schedule:
+    - cron: "0 17 * * */7" # https://crontab.guru/#0_17_*_*_*/7
   push:
     branches: [main]
     paths:
