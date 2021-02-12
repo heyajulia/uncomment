@@ -27,5 +27,7 @@ jobs:
         run: perl ../uncomment.pl c/*.c c/*.h
         working-directory: ./craftinginterpreters
       - name: Test clox
-        run: make test_clox
+        run: |
+          make get
+          make test_clox -j
         working-directory: ./craftinginterpreters
