@@ -2,12 +2,13 @@
 
 use strict;
 use warnings;
+use feature qw(say);
 
 use Fcntl qw(SEEK_SET);
 
 foreach my $file (@ARGV) {
-    print("Uncommenting $file");
-    
+    say("Uncommenting $file");
+
     open(my $fd, "+<", $file) or die $!;
 
     my $isInsideMultilineComment = 0;
