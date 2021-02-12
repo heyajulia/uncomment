@@ -24,7 +24,7 @@ jobs:
       # craftinginterpreters' `make test' depends on Dart.
       - uses: cedx/setup-dart@v2
       - name: Uncomment code
-        run: perl ../uncomment.plc/*.c c/*.h
+        run: perl ../uncomment.pl c/*.c c/*.h
         working-directory: ./craftinginterpreters
       - name: Test clox
         run: make test
