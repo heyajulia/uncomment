@@ -1,4 +1,4 @@
-# unomment
+# uncomment
 
 I wrote this program because I wanted to be able to read the source code of
 the Lox VM without all of the various directives (and commented-out code) that
