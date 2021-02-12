@@ -5,15 +5,14 @@ use warnings;
 
 use Fcntl qw(SEEK_SET);
 
-my $isInsideMultilineComment = 0;
-
 foreach my $file (@ARGV) {
     open(my $fd, "+<", $file) or die $!;
 
+    my $isInsideMultilineComment = 0;
     my $stripped = "";
 
     foreach my $line (<$fd>) {
-        next if $line =~ /\/\/[<>].*/;
+        next if $line =~ /^\/\/[<>]/;
 
         if ($line =~ /\/\*/) {
             $isInsideMultilineComment = 1;
