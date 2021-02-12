@@ -28,3 +28,4 @@ jobs:
         working-directory: ./craftinginterpreters
       - name: Test clox
         run: make test_clox
+        working-directory: ./craftinginterpreters
