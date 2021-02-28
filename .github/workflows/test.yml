@@ -21,8 +21,11 @@ jobs:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
       - uses: shogo82148/actions-setup-perl@v1
-      # craftinginterpreters' `make test_clox' depends on Dart.
+      # craftinginterpreters' `make test_clox' depends on
+      # a beta version of Dart.
       - uses: cedx/setup-dart@v2
+        with:
+          release-channel: beta
       - name: Uncomment code
         run: perl ../uncomment.pl c/*.c c/*.h
         working-directory: ./craftinginterpreters
