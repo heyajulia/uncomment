@@ -20,7 +20,7 @@ jobs:
         with:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
-      - uses: shogo82148/actions-setup-perl@v1
+      - uses: shogo82148/actions-setup-perl@v1.11.0
       # craftinginterpreters' `make test_clox' depends on
       # a beta version of Dart.
       - uses: cedx/setup-dart@v2.5.0
