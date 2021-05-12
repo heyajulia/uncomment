@@ -23,7 +23,7 @@ jobs:
       - uses: shogo82148/actions-setup-perl@v1
       # craftinginterpreters' `make test_clox' depends on
       # a beta version of Dart.
-      - uses: cedx/setup-dart@v2
+      - uses: cedx/setup-dart@v2.5.0
         with:
           release-channel: beta
       - name: Uncomment code
