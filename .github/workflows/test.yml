@@ -27,7 +27,7 @@ jobs:
         with:
           release-channel: beta
       - name: Uncomment code
-        run: raku ../uncomment.pl c/*.c c/*.h
+        run: raku ../uncomment.raku c/*.c c/*.h
         working-directory: ./craftinginterpreters
       - name: Test clox
         run: |
