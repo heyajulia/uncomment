@@ -5,29 +5,29 @@ on:
   push:
     branches: [main]
     paths:
-      - "**.pl"
+      - "**.raku"
   pull_request:
     branches: [main]
     paths:
-      - "**.pl"
+      - "**.raku"
   workflow_dispatch:
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
+      # check out our code
       - uses: actions/checkout@v2.3.4
       - uses: actions/checkout@v2.3.4
         with:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
-      - uses: shogo82148/actions-setup-perl@v1.11.0
-      # craftinginterpreters' `make test_clox' depends on
-      # a beta version of Dart.
+      - uses: Raku/setup-raku@v1
+      # craftinginterpreters' `make test_clox' depends on a beta version of Dart.
       - uses: cedx/setup-dart@v2.5.0
         with:
           release-channel: beta
       - name: Uncomment code
-        run: perl ../uncomment.pl c/*.c c/*.h
+        run: raku ../uncomment.pl c/*.c c/*.h
         working-directory: ./craftinginterpreters
       - name: Test clox
         run: |
