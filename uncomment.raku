@@ -1,16 +1,16 @@
+my Regex $section-directive = /^("//<" | "//>")/;
+my Regex $multiline-comment-open = /"/*"/;
+my Regex $multiline-comment-close = /"*/"/;
+
 for @*ARGS -> $file {
     note "Uncommenting $file";
-
-    my Regex $section-directive = /^("//<" | "//>")/;
-    my Regex $multiline-comment-open = /"/*"/;
-    my Regex $multiline-comment-close = /"*/"/;
 
     my Str $text = slurp $file;
     my Str $uncommented = "";
 
     my Bool $inside-multiline-comment = False;
 
-    for $text.lines -> $line {
+    for $file.IO.lines(:!chomp) -> $line {
         next if $line ~~ $section-directive;
 
         if $line ~~ $multiline-comment-open {
@@ -24,7 +24,7 @@ for @*ARGS -> $file {
 
         next if $inside-multiline-comment;
 
-        $uncommented ~= "$line\n";
+        $uncommented ~= $line;
     }
 
     spurt $file, $uncommented;
