@@ -1,13 +1,13 @@
 name: Test
 on:
-  schedule:
-    - cron: "0 16 * * */7" # https://crontab.guru/#0_16_*_*_*/7
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "**.raku"
   pull_request:
-    branches: [main]
+    branches:
+      - main
     paths:
       - "**.raku"
   workflow_dispatch:
@@ -22,10 +22,9 @@ jobs:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
       - uses: Raku/setup-raku@v1
-      # craftinginterpreters' `make test_clox' depends on a beta version of Dart.
-      - uses: cedx/setup-dart@v2.5.0
+      - uses: dart-lang/setup-dart@v1.3
         with:
-          release-channel: beta
+          sdk: stable
       - name: Uncomment code
         run: raku ../uncomment.raku c/*.c c/*.h
         working-directory: ./craftinginterpreters
