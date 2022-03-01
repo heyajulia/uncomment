@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # check out our code
-      - uses: actions/checkout@v2.4.0
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
