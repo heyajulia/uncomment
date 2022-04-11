@@ -30,7 +30,7 @@ jobs:
       - name: Test jlox
         run: |
           make get
-          mkdir -p build/debug/cloxd
+          make test_jlox || true
           make test_jlox
         working-directory: ./craftinginterpreters
   test_clox:
