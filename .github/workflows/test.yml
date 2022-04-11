@@ -25,7 +25,7 @@ jobs:
         with:
           sdk: stable
       - name: Uncomment code
-        run: raku ../uncomment.raku java/**/*.java
+        run: raku ../uncomment.raku $(find java -name "*.java")
         working-directory: ./craftinginterpreters
       - name: Test jlox
         run: |
