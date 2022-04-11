@@ -1,9 +1,8 @@
 # uncomment
 
-**uncomment** strips comments from the source of the [`clox`][clox] VM. It is
-regularly tested to make sure a change to `clox` doesn't break the script.
+**uncomment** strips comments from the source code of [jlox][] and [clox][].
 
-You can use it like so:
+Use it like this strip comments from clox:
 
 ```bash
 ~$ git clone --depth 1 https://github.com/munificent/craftinginterpreters
@@ -12,4 +11,6 @@ You can use it like so:
 ~/craftinginterpreters/c$ raku ../../uncomment/uncomment.raku *.c *.h
 ```
 
-[clox]: https://github.com/munificent/craftinginterpreters
+[jlox]:
+  https://github.com/munificent/craftinginterpreters/tree/master/java/com/craftinginterpreters
+[clox]: https://github.com/munificent/craftinginterpreters/tree/master/c

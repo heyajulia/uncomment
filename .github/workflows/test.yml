@@ -1,21 +1,40 @@
-name: Test
+name: Test jlox and clox
 on:
   push:
     branches:
       - main
     paths:
-      - "**.raku"
+      - "*.raku"
   pull_request:
     branches:
       - main
     paths:
-      - "**.raku"
+      - "*.raku"
   workflow_dispatch:
 jobs:
-  test:
+  test_jlox:
     runs-on: ubuntu-latest
     steps:
-      # check out our code
+      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: munificent/craftinginterpreters
+          path: craftinginterpreters
+      - uses: Raku/setup-raku@v1
+      - uses: dart-lang/setup-dart@v1.3
+        with:
+          sdk: stable
+      - name: Uncomment code
+        run: raku ../uncomment.raku java/**/*.java
+        working-directory: ./craftinginterpreters
+      - name: Test jlox
+        run: |
+          make get
+          make test_jlox
+        working-directory: ./craftinginterpreters
+  test_clox:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
       - uses: actions/checkout@v3
         with:
