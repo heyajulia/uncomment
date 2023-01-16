@@ -21,7 +21,7 @@ jobs:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
       - uses: Raku/setup-raku@v1
-      - uses: dart-lang/setup-dart@v1.3
+      - uses: dart-lang/setup-dart@v1.4
         with:
           sdk: stable
       - name: Uncomment code
@@ -42,7 +42,7 @@ jobs:
           repository: munificent/craftinginterpreters
           path: craftinginterpreters
       - uses: Raku/setup-raku@v1
-      - uses: dart-lang/setup-dart@v1.3
+      - uses: dart-lang/setup-dart@v1.4
         with:
           sdk: stable
       - name: Uncomment code
